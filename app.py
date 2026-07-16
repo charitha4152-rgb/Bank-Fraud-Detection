@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# ---------------- Page Configuration ----------------
+# Page Configuration 
 
 st.set_page_config(
     page_title="Banking Fraud Analysis",
@@ -10,15 +10,14 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- Load Dataset ----------------
-
+#  Load Dataset 
 @st.cache_data
 def load_data():
     return pd.read_csv("Dataset/fraud_dataset.csv")
 
 df = load_data()
 
-# ---------------- Sidebar ----------------
+#  Sidebar 
 
 st.sidebar.title("🏦 Banking Fraud Analysis")
 st.sidebar.markdown("---")
@@ -31,7 +30,7 @@ page = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.success("Project Status: Completed ✅")
 
-# ---------------- HOME ----------------
+# HOME 
 
 if page == "🏠 Home":
 
@@ -64,8 +63,7 @@ if page == "🏠 Home":
     st.subheader("📈 Statistical Summary")
     st.dataframe(df.describe())
 
-# ---------------- DASHBOARD ----------------
-
+# DASHBOARD 
 elif page == "📊 Dashboard":
 
     st.title("📊 Fraud Analytics Dashboard")
@@ -119,7 +117,7 @@ elif page == "📊 Dashboard":
 
     st.pyplot(fig3)
 
-# ---------------- DATASET ----------------
+#  DATASET
 
 elif page == "📋 Dataset":
 
@@ -152,7 +150,7 @@ elif page == "📋 Dataset":
         "text/csv"
     )
 
-# ---------------- ML MODEL ----------------
+# ML MODEL 
 
 elif page == "🤖 ML Model":
 
@@ -177,7 +175,7 @@ elif page == "🤖 ML Model":
 - Classification Report
 """)
 
-# ---------------- ABOUT ----------------
+# ABOUT 
 
 elif page == "ℹ️ About":
 
@@ -205,7 +203,7 @@ Detect fraudulent banking transactions using Machine Learning.
 **Gangi Reddy Charitha**
 """)
 
-# ---------------- FOOTER ----------------
+#  FOOTER ----------------
 
 st.markdown("---")
 
